@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-//TO DO: Pick dateformat and add email "match" validation
 
 const UserSchema = new Schema(
   {
@@ -12,7 +11,8 @@ const UserSchema = new Schema(
     email: {
       type: String,
       required: true,
-			unique: true
+			unique: true,
+      match: [/.+\@.+\..+/]
     },
     thoughts: {
       type: Schema.Types.ObjectId,
